@@ -1,5 +1,10 @@
 const btnContainer = document.getElementById('btn-container');
 
+let selectedCategory = '1000';
+let sortByView = false;
+
+
+const sortBtn = document.getElementById('sort-btn');
 
 const fetchCategories = async () => {
   const url = 'https://openapi.programming-hero.com/api/videos/categories';
@@ -8,28 +13,46 @@ const fetchCategories = async () => {
   data = data.data;
   data.forEach(card => {
     const newBtn = document.createElement('button');
-    newBtn.classList.add('btn', 'bg-[#25252533]');
+    newBtn.classList.add('btn', 'bg-[#25252533]','category-btn');
     newBtn.innerText = card.category;
     
-    newBtn.addEventListener('click', () => fetchDataByCategories(card.category, card.category_id,newBtn));
+    newBtn.addEventListener('click', () => {
+      fetchDataByCategories( card.category_id,sortByView);
+      const allBtns = document.querySelectorAll('.category-btn');
+      for(let btn of allBtns){
+         btn.classList.remove('bg-red-600','text-white','font-bold');
+      }
+      newBtn.classList.add('bg-red-600','text-white','font-bold');
+    });
     btnContainer.appendChild(newBtn);
   })
-
+  
+  
 }
 
 fetchCategories()
 
 //load data by catagories
 
-const fetchDataByCategories = async (category, id='1000') => {
-  
+const fetchDataByCategories = async (id,sortByView) => {
+  selectedCategory = id;
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
   loadingSnipped(true);
-  const url = `https://openapi.programming-hero.com/api/videos/category/${id}`;
+  const url = `https://openapi.programming-hero.com/api/videos/category/${selectedCategory}`;
   const res = await fetch(url);
   let data = await res.json();
   data = data.data;
+  
+  if(sortByView){
+    data.sort((a,b)=>{
+       let totalViewFirst = a.others?.views;
+       let totalViewsSecond = b.others?.views;
+       let totalViewFirstNumber = parseFloat(totalViewFirst.replace('K','') || 0);
+       let totalViewSecondNumber = parseFloat(totalViewsSecond.replace('K','')||0);
+       return totalViewSecondNumber - totalViewFirstNumber;
+    });
+  }
   
   if(data.length === 0){
     showError(true);
@@ -96,5 +119,9 @@ const showError=(value)=>{
       error.classList.add('hidden');
     }
 }
+sortBtn.addEventListener('click',()=>{
+  sortByView = true;
+  fetchDataByCategories(selectedCategory,sortByView)
+})
+fetchDataByCategories(selectedCategory,sortByView);
 
-fetchDataByCategories();
