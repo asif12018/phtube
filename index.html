@@ -36,90 +36,26 @@
 <main class="container mx-auto">
     <!--=======       bottom bar start from here        ========-->
     <section class="py-6">
-    <div class="flex justify-center gap-4">
-        <button class="btn btn-error bg-[#FF1F3D] text-white font-bold ">blog</button>
+    <div id="btn-container" class="flex justify-center gap-4">
+        <!-- <button class="btn  bg-[#25252533]  ">blog</button>
         <button class="btn  bg-[#25252533]  ">Music</button>
-        <button class="btn  bg-[#25252533]   ">Comedy</button><button class="btn  bg-[#25252533]  ">Drawing</button>
+        <button class="btn  bg-[#25252533]   ">Comedy</button>
+        <button class="btn  bg-[#25252533]  ">Drawing</button> -->
     </div>
     </section>
-
+    <!--====== loading section======-->
+    <section id="loading-snipped" class="flex justify-center py-52 hidden">
+        <span class="loading loading-ring loading-lg"></span>
+    </section>
     <!---=======    course section   =========--->
     <section class="">
-       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+       <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
         <!---- card 1 ----->
-          <div class="col-span-1 max-w-[312px]">
-            <div>
-                <img src="./Design-in-png/Rectangle1.png" alt="">
-            </div>
-            <!-- card use img and title -->
-            <div class="flex justify-between py-3">
-                <div class="">
-                <img src="./Design-in-png/Ellipse1.svg" alt="">
-                </div>
-                <div class=" mt-0 pt-0">
-                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
-                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
-                    <p class="text-[14px] text-[#171717B2]">91k views</p>
-                </div>
-            </div>
-          </div>
+          
 
 
-          <!---- card 2 ----->
-          <div class="col-span-1 max-w-[312px]">
-            <div>
-                <img src="./Design-in-png/Rectangle1.png" alt="">
-            </div>
-            <!-- card use img and title -->
-            <div class="flex justify-between py-3">
-                <div class="">
-                <img src="./Design-in-png/Ellipse1.svg" alt="">
-                </div>
-                <div class=" mt-0 pt-0">
-                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
-                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
-                    <p class="text-[14px] text-[#171717B2]">91k views</p>
-                </div>
-            </div>
-          </div>
-
-
-          <!---- card 3 ----->
-          <div class="col-span-1 max-w-[312px]">
-            <div>
-                <img src="./Design-in-png/Rectangle1.png" alt="">
-            </div>
-            <!-- card use img and title -->
-            <div class="flex justify-between py-3">
-                <div class="">
-                <img src="./Design-in-png/Ellipse1.svg" alt="">
-                </div>
-                <div class=" mt-0 pt-0">
-                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
-                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
-                    <p class="text-[14px] text-[#171717B2]">91k views</p>
-                </div>
-            </div>
-          </div>
-
-          <!---- card 4 ----->
-          <div class="col-span-1 max-w-[312px]">
-            <div>
-                <img src="./Design-in-png/Rectangle1.png" alt="">
-            </div>
-            <!-- card use img and title -->
-            <div class="flex justify-between py-3">
-                <div class="">
-                <img src="./Design-in-png/Ellipse1.svg" alt="">
-                </div>
-                <div class=" mt-0 pt-0">
-                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
-                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
-                    <p class="text-[14px] text-[#171717B2]">91k views</p>
-                </div>
-            </div>
-          </div>
+         
 
           
 
@@ -131,7 +67,7 @@
 </main>
 
 <!-----===== error ======------->
-<section class="container mx-auto flex flex-col items-center py-32 hidden">
+<section id="error" class="container mx-auto flex flex-col items-center py-32 ">
     <div class="">
         <img src="./Icon.png" alt="">
     </div>
