@@ -1,11 +1,13 @@
 const btnContainer = document.getElementById('btn-container');
 
+//setting default category
 let selectedCategory = '1000';
 let sortByView = false;
 
-
+//getting sort btn
 const sortBtn = document.getElementById('sort-btn');
 
+//fetch data by category to create category btn dynamically
 const fetchCategories = async () => {
   const url = 'https://openapi.programming-hero.com/api/videos/categories';
   const res = await fetch(url);
@@ -18,7 +20,9 @@ const fetchCategories = async () => {
     
     newBtn.addEventListener('click', () => {
       fetchDataByCategories( card.category_id,sortByView);
+      
       const allBtns = document.querySelectorAll('.category-btn');
+      //this function add the color or style to the selected button
       for(let btn of allBtns){
          btn.classList.remove('bg-red-600','text-white','font-bold');
       }
@@ -30,12 +34,15 @@ const fetchCategories = async () => {
   
 }
 
-fetchCategories()
+//calling fetchCategories function to added category btn by default dynamically
+fetchCategories();
 
-//load data by catagories
+//load data by catagories function
 
 const fetchDataByCategories = async (id,sortByView) => {
+  // setting default selectedCategory data to id so that if category btn got clicked it can load data by category
   selectedCategory = id;
+  //creating music card
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
   loadingSnipped(true);
@@ -43,7 +50,7 @@ const fetchDataByCategories = async (id,sortByView) => {
   const res = await fetch(url);
   let data = await res.json();
   data = data.data;
-  
+  //function to sort the card by view
   if(sortByView){
     data.sort((a,b)=>{
        let totalViewFirst = a.others?.views;
@@ -54,6 +61,7 @@ const fetchDataByCategories = async (id,sortByView) => {
     });
   }
   
+  //this function trigger the error page if no data found from category btn and also trigger the loading snipped function
   if(data.length === 0){
     showError(true);
     loadingSnipped(false);
@@ -63,7 +71,7 @@ const fetchDataByCategories = async (id,sortByView) => {
   }
   
   data.forEach(video => {
-    
+    //this function check if the auther is verified or not
     let verifiedBadged = '';
     if(video.authors[0].verified){
       verifiedBadged = '<img src="./Design-in-png/verified.svg">';
@@ -119,9 +127,11 @@ const showError=(value)=>{
       error.classList.add('hidden');
     }
 }
+//short by view function
 sortBtn.addEventListener('click',()=>{
   sortByView = true;
   fetchDataByCategories(selectedCategory,sortByView)
 })
+//calling the fetch by data function by default so that it can load default data id=1000
 fetchDataByCategories(selectedCategory,sortByView);
 
