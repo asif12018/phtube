@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Tube</title>
+    <link rel="icon" type="image/x-icon" href="./Logo.png">
+    <!---        daisy ui and tailwind css        -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--   ===     custom css      ====     -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+<!-- =====  header start from here   ====== -->
+<header class="container mx-auto border-b-2 py-3">
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              <div>
+                <img src="./Logo.png" alt="">
+              </div>
+            </div>
+            <div class="navbar-center">
+              <div class="bg-[#25252533] py-[10px] px-[20px]"><button>Sort by view</button></div>
+            </div>
+            <div class="navbar-end">
+                <button class="btn btn-error bg-[#FF1F3D] text-white font-bold ">blog</button>
+            </div>
+          </div>
+    </nav>
+</header>
+
+<main class="container mx-auto">
+    <!--=======       bottom bar start from here        ========-->
+    <section class="py-6">
+    <div class="flex justify-center gap-4">
+        <button class="btn btn-error bg-[#FF1F3D] text-white font-bold ">blog</button>
+        <button class="btn  bg-[#25252533]  ">Music</button>
+        <button class="btn  bg-[#25252533]   ">Comedy</button><button class="btn  bg-[#25252533]  ">Drawing</button>
+    </div>
+    </section>
+
+    <!---=======    course section   =========--->
+    <section class="">
+       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+        <!---- card 1 ----->
+          <div class="col-span-1 max-w-[312px]">
+            <div>
+                <img src="./Design-in-png/Rectangle1.png" alt="">
+            </div>
+            <!-- card use img and title -->
+            <div class="flex justify-between py-3">
+                <div class="">
+                <img src="./Design-in-png/Ellipse1.svg" alt="">
+                </div>
+                <div class=" mt-0 pt-0">
+                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
+                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
+                    <p class="text-[14px] text-[#171717B2]">91k views</p>
+                </div>
+            </div>
+          </div>
+
+
+          <!---- card 2 ----->
+          <div class="col-span-1 max-w-[312px]">
+            <div>
+                <img src="./Design-in-png/Rectangle1.png" alt="">
+            </div>
+            <!-- card use img and title -->
+            <div class="flex justify-between py-3">
+                <div class="">
+                <img src="./Design-in-png/Ellipse1.svg" alt="">
+                </div>
+                <div class=" mt-0 pt-0">
+                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
+                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
+                    <p class="text-[14px] text-[#171717B2]">91k views</p>
+                </div>
+            </div>
+          </div>
+
+
+          <!---- card 3 ----->
+          <div class="col-span-1 max-w-[312px]">
+            <div>
+                <img src="./Design-in-png/Rectangle1.png" alt="">
+            </div>
+            <!-- card use img and title -->
+            <div class="flex justify-between py-3">
+                <div class="">
+                <img src="./Design-in-png/Ellipse1.svg" alt="">
+                </div>
+                <div class=" mt-0 pt-0">
+                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
+                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
+                    <p class="text-[14px] text-[#171717B2]">91k views</p>
+                </div>
+            </div>
+          </div>
+
+          <!---- card 4 ----->
+          <div class="col-span-1 max-w-[312px]">
+            <div>
+                <img src="./Design-in-png/Rectangle1.png" alt="">
+            </div>
+            <!-- card use img and title -->
+            <div class="flex justify-between py-3">
+                <div class="">
+                <img src="./Design-in-png/Ellipse1.svg" alt="">
+                </div>
+                <div class=" mt-0 pt-0">
+                    <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
+                    <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
+                    <p class="text-[14px] text-[#171717B2]">91k views</p>
+                </div>
+            </div>
+          </div>
+
+          
+
+
+
+
+       </div>
+    </section>
+</main>
+
+<!-----===== error ======------->
+<section class="container mx-auto flex flex-col items-center py-32 hidden">
+    <div class="">
+        <img src="./Icon.png" alt="">
+    </div>
+    <div>
+        <h3 class="font-bold text-black text-2xl">Oops!! Sorry, There is no content here</h3>
+    </div>
+</section>
+
+
+
+
+
+<script src="./app.js"></script>
+</body>
+
+</html>
