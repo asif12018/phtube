@@ -10,7 +10,8 @@ const fetchCategories = async () => {
     const newBtn = document.createElement('button');
     newBtn.classList.add('btn', 'bg-[#25252533]');
     newBtn.innerText = card.category;
-    newBtn.addEventListener('click', () => fetchDataByCategories(card.category, card.category_id));
+    
+    newBtn.addEventListener('click', () => fetchDataByCategories(card.category, card.category_id,newBtn));
     btnContainer.appendChild(newBtn);
   })
 
@@ -20,8 +21,8 @@ fetchCategories()
 
 //load data by catagories
 
-const fetchDataByCategories = async (category, id='1000') => {
-  
+const fetchDataByCategories = async (category, id='1000',newBtn) => {
+  newBtn.classList.add('bg-red-600','text-white');
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
   loadingSnipped(true);
@@ -42,20 +43,20 @@ const fetchDataByCategories = async (category, id='1000') => {
     
     
     const div = document.createElement('div');
-    div.className = "col-span-1 max-w-[312px]";
+    div.className = "col-span-1 max-w-[312px]shadow-2xl";
     div.innerHTML = `
     <div class="w-[312px] h-[200px]">
     <img class="max-w-[312px] max-h-[200px]" src="${video.thumbnail}" alt="">
 </div>
 <!-- card use img and title -->
-<div class="flex justify-between py-3">
+<div class="flex gap-2 py-3">
     <div class="">
     <img class="w-[40px] h-[40px] rounded-full" src="${video.authors[0].profile_picture}" alt="">
     </div>
     <div class=" mt-0 pt-0">
-        <h3 class="text-[16px] text-black font-bold">Python Full Course for free 🐍</h3>
-        <p class="text-[14px] text-[#171717B2]">Awlad Hossain</p>
-        <p class="text-[14px] text-[#171717B2]">91k views</p>
+        <h3 class="text-[16px] text-black font-bold">${video.title}</h3>
+        <p class="text-[14px] text-[#171717B2]">${video.authors[0].profile_name}</p>
+        <p class="text-[14px] text-[#171717B2]">${video.others.views}</p>
     </div>
 </div>
     `;
