@@ -21,8 +21,8 @@ fetchCategories()
 
 //load data by catagories
 
-const fetchDataByCategories = async (category, id='1000',newBtn) => {
-  newBtn.classList.add('bg-red-600','text-white');
+const fetchDataByCategories = async (category, id='1000') => {
+  
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
   loadingSnipped(true);
@@ -41,7 +41,10 @@ const fetchDataByCategories = async (category, id='1000',newBtn) => {
   
   data.forEach(video => {
     
-    
+    let verifiedBadged = '';
+    if(video.authors[0].verified){
+      verifiedBadged = '<img src="./Design-in-png/verified.svg">';
+    }
     const div = document.createElement('div');
     div.className = "col-span-1 max-w-[312px]shadow-2xl";
     div.innerHTML = `
@@ -55,7 +58,10 @@ const fetchDataByCategories = async (category, id='1000',newBtn) => {
     </div>
     <div class=" mt-0 pt-0">
         <h3 class="text-[16px] text-black font-bold">${video.title}</h3>
+        <div class="flex gap-3">
         <p class="text-[14px] text-[#171717B2]">${video.authors[0].profile_name}</p>
+        ${verifiedBadged};
+        </div>
         <p class="text-[14px] text-[#171717B2]">${video.others.views}</p>
     </div>
 </div>
@@ -90,5 +96,5 @@ const showError=(value)=>{
       error.classList.add('hidden');
     }
 }
-fetchDataByCategories();
 
+fetchDataByCategories();
